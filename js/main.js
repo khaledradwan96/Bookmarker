@@ -53,3 +53,15 @@ function deleteSite(index){
     localStorage.setItem("bookmarkSites", JSON.stringify(siteContainer))
     displaySite(siteContainer);
 }
+
+function validateInputs(element){
+    var regex = {
+        siteName: /^([A-Z]|[a-z]){3,}$/,
+        siteURL: /^(?:(?:https?|ftp):\/\/)?(?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)+[^\s]*$/i
+    }
+    if(regex[element.id].test(element.value)){
+        console.log("match")
+    }else{
+        console.log("no match")
+    }
+}
