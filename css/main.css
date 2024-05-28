@@ -1,0 +1,14 @@
+body {
+  font-family: "PT Sans Caption", "sans-serif";
+}
+
+main {
+  min-height: 100vh;
+  background-color: #6dc5d1;
+}
+main h1 {
+  font-family: "Pacifico", "cursive";
+  font-size: 50px;
+  color: #352e28;
+  position: relative;
+}
