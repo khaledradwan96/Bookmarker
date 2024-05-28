@@ -24,7 +24,7 @@ main h1::before {
   left: 0;
   bottom: 10px;
   background-color: #6dc5d1;
-  transition: height 350ms;
+  transition: 0.3s;
   z-index: -1;
 }
 main h1:hover::before {
@@ -33,7 +33,7 @@ main h1:hover::before {
 main .add-control {
   border-top: 2px dotted #352e28;
   border-bottom: 2px dotted #352e28;
-  padding-block: 2rem;
+  padding-block: 1.5rem;
 }
 main .add-control h2 {
   font-size: 25px;
@@ -42,10 +42,29 @@ main .add-control h2 {
   background: linear-gradient(to right, #01204e, #028391);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  z-index: 5;
+}
+main .add-control h2::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  left: 0;
+  bottom: -5px;
+  background: linear-gradient(to right, #01204e, #028391);
+  transition: 0.3s;
+  z-index: -1;
+}
+main .add-control:hover h2::before {
+  width: 100%;
 }
 .form-control:focus {
-  border-color: #028391;
+  color: #212529;
   background-color: #fff;
+  border-color: #d99c39;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem #6dc5d1;
+  box-shadow: 0 0 0 0.25rem #fec26055;
 }

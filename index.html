@@ -45,9 +45,9 @@
                     <input type="url" id="siteURL" class="form-control" placeholder="Website URL">
                 </div>
 
-                <button class="btn btn-warning px-5 mt-3">Submit</button>
+                <button onclick="addSite()" class="btn btn-warning px-5 mt-3">Submit</button>
             </div>
-            <table class="table mt-3 text-center bg-light">
+            <table class="table mt-4">
                 <thead>
                     <tr>
                         <th>Index</th>
@@ -56,40 +56,7 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody class="align-middle">
-                    <tr>
-                        <td>1</td>
-                        <td>Facebook</td>
-                        <td>
-                            <a href="#" class="btn btn-success">
-                                <i class="fa-solid fa-eye"></i>
-                                Visit
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-danger">
-                                <i class="fa-solid fa-trash"></i>
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Facebook</td>
-                        <td>
-                            <a href="#" class="btn btn-success">
-                                <i class="fa-solid fa-eye"></i>
-                                Visit
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-danger">
-                                <i class="fa-solid fa-trash"></i>
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody class="align-middle" id="tableContent"> </tbody>
             </table>
         </div>
     </main>
