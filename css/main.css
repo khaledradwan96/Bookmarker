@@ -4,11 +4,48 @@ body {
 
 main {
   min-height: 100vh;
-  background-color: #6dc5d1;
+  background-color: #fde49e;
 }
 main h1 {
   font-family: "Pacifico", "cursive";
   font-size: 50px;
   color: #352e28;
   position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+main h1::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  left: 0;
+  bottom: 10px;
+  background-color: #6dc5d1;
+  transition: height 350ms;
+  z-index: -1;
+}
+main h1:hover::before {
+  height: 50%;
+}
+main .add-control {
+  border-top: 2px dotted #352e28;
+  border-bottom: 2px dotted #352e28;
+  padding-block: 2rem;
+}
+main .add-control h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #01204e, #028391);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.form-control:focus {
+  border-color: #028391;
+  background-color: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #6dc5d1;
 }
