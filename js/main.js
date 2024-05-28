@@ -28,16 +28,16 @@ function displaySite(arr){
         cartona +=`
         <tr>
         <td>${i+1}</td>
-        <td>${arr[i].name}</td>
+        <td class="fw-bold">${arr[i].name}</td>
         <td>
             <a href="${arr[i].URL}" target="_blank" class="btn btn-success">
-                <i class="fa-solid fa-eye"></i>
+                <i class="fa-solid fa-eye pe-2"></i>
                 Visit
             </a>
         </td>
         <td>
-            <button class="btn btn-danger">
-                <i class="fa-solid fa-trash"></i>
+            <button onclick="deleteSite(${i})" class="btn btn-danger">
+                <i class="fa-solid fa-trash-can"></i>
                 Delete
             </button>
         </td>
@@ -45,4 +45,11 @@ function displaySite(arr){
         `
     }
     document.getElementById("tableContent").innerHTML = cartona
+}
+
+function deleteSite(index){
+    console.log(index) // for get index of click
+    siteContainer.splice(index, 1);
+    localStorage.setItem("bookmarkSites", JSON.stringify(siteContainer))
+    displaySite(siteContainer);
 }
