@@ -133,3 +133,9 @@ function updateSite(updateIndex){
     addBtn.classList.remove("d-none")
     updateBtn.classList.add("d-none")
 }
+
+function clearAll(){
+    localStorage.clear()
+    siteContainer = [];
+    displaySite(siteContainer);
+}
