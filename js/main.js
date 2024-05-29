@@ -2,6 +2,7 @@ var siteName = document.getElementById("siteName");
 var siteURL = document.getElementById("siteURL");
 var popUp = document.querySelector(".pop-up");
 var closeBtn = document.getElementById("closeBtn")
+var searchInput = document.getElementById("searchInput")
 
 
 var siteContainer;
@@ -88,3 +89,15 @@ function closePopUp(){
 }
 
 closeBtn.addEventListener("click", closePopUp)
+
+function search(){
+    var term = searchInput.value;
+    console.log(term)
+    var box=[];
+    for(var i=0; i<siteContainer.length; i++){
+        if(siteContainer[i].name.toLowerCase().includes(term.toLowerCase())){
+            box.push(siteContainer[i])
+        }
+    }
+    displaySite(box)
+};
