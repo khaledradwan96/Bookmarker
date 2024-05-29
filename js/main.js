@@ -9,12 +9,14 @@ var searchInput = document.getElementById("searchInput")
 var addBtn = document.getElementById("addBtn")
 var updateBtn = document.getElementById("updateBtn")
 var clearBtn = document.getElementById("clearBtn")
+var testBtn = document.getElementById("testBtn")
 
 
 var siteContainer;
 if(localStorage.getItem('bookmarkSites') === null){  // user is new
     siteContainer = [];
     clearBtn.classList.add("d-none")
+    testBtn.classList.remove("d-none")
     }else{ // user have storage data
     siteContainer = JSON.parse(localStorage.getItem('bookmarkSites'));
     displaySite(siteContainer);
@@ -82,6 +84,7 @@ function deleteSite(index){
 
     if(siteContainer.length == 0){
         clearBtn.classList.add("d-none")
+        testBtn.classList.remove("d-none")
     }
 }
 
@@ -152,4 +155,18 @@ function clearAll(){
     siteContainer = [];
     displaySite(siteContainer);
     clearBtn.classList.add("d-none")
+    testBtn.classList.remove("d-none")
+}
+
+function addTestData(){
+    var testData = [
+        {name: "facebook", URL: "https://www.facebook.com/"},
+        {name: "YouTube", URL: "https://www.youtube.com/"},
+        {name: "google", URL: "https://www.google.com/"},
+    ]
+    siteContainer = testData;
+    displaySite(siteContainer);
+    localStorage.setItem("bookmarkSites", JSON.stringify(siteContainer))
+    testBtn.classList.add("d-none")
+    clearBtn.classList.remove("d-none")
 }

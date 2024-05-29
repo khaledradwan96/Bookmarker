@@ -118,3 +118,10 @@ table tbody tr:hover td:nth-child(2) {
 .pop-up i {
   color: #bb4120;
 }
+
+@media screen and (max-width: 480px) {
+  main .add-control h2 {
+    font-size: 20px;
+    max-width: 200px;
+  }
+}
