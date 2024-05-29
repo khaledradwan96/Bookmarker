@@ -28,12 +28,18 @@ if(regex.siteName.test(site.name) && regex.siteURL.test(site.URL)){
     siteContainer.push(site)
     localStorage.setItem("bookmarkSites", JSON.stringify(siteContainer))
     displaySite(siteContainer)
-    siteName.value = null;
-    siteURL.value = null;
+    clearForm()
     popUp.classList.replace("d-flex", "d-none")    
 }else{
     popUp.classList.replace("d-none", "d-flex")    
 }
+}
+
+function clearForm(){
+    siteName.value = null;
+    siteURL.value = null;
+    siteName.classList.remove("is-valid")
+    siteURL.classList.remove("is-valid")
 }
 
 function displaySite(arr){
