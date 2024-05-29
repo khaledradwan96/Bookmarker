@@ -8,11 +8,13 @@ var searchInput = document.getElementById("searchInput")
 
 var addBtn = document.getElementById("addBtn")
 var updateBtn = document.getElementById("updateBtn")
+var clearBtn = document.getElementById("clearBtn")
 
 
 var siteContainer;
 if(localStorage.getItem('bookmarkSites') === null){  // user is new
-    siteContainer = []
+    siteContainer = [];
+    clearBtn.classList.add("d-none")
     }else{ // user have storage data
     siteContainer = JSON.parse(localStorage.getItem('bookmarkSites'));
     displaySite(siteContainer);
@@ -30,6 +32,7 @@ if(regex.siteName.test(site.name) && regex.siteURL.test(site.URL)){
     displaySite(siteContainer)
     clearForm()
     popUp.classList.replace("d-flex", "d-none")    
+    clearBtn.classList.remove("d-none")
 }else{
     popUp.classList.replace("d-none", "d-flex")    
 }
@@ -76,6 +79,10 @@ function deleteSite(index){
     siteContainer.splice(index, 1);
     localStorage.setItem("bookmarkSites", JSON.stringify(siteContainer))
     displaySite(siteContainer);
+
+    if(siteContainer.length == 0){
+        clearBtn.classList.add("d-none")
+    }
 }
 
 // validate Inputs
@@ -144,4 +151,5 @@ function clearAll(){
     localStorage.clear()
     siteContainer = [];
     displaySite(siteContainer);
+    clearBtn.classList.add("d-none")
 }
