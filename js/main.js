@@ -22,12 +22,12 @@ if(localStorage.getItem('bookmarkSites') === null){  // user is new
     displaySite(siteContainer);
     };  
 
+
 function addSite(){
     var site = {
         name: siteName.value,
         URL: siteURL.value
     }
-
 if(regex.siteName.test(site.name) && regex.siteURL.test(site.URL)){
     siteContainer.push(site)
     localStorage.setItem("bookmarkSites", JSON.stringify(siteContainer))
@@ -135,18 +135,29 @@ function getValues(index){
 
     addBtn.classList.add("d-none")
     updateBtn.classList.remove("d-none")
+
+    siteName.classList.add("is-valid")
+    siteURL.classList.add("is-valid")
 }
 
 function updateSite(updateIndex){
     siteContainer[updateIndex].name = siteName.value;
     siteContainer[updateIndex].URL = siteURL.value;
 
-    displaySite(siteContainer);
-    localStorage.setItem("bookmarkSites", JSON.stringify(siteContainer))
-    clearForm()
-
-    addBtn.classList.remove("d-none")
-    updateBtn.classList.add("d-none")
+    var site = {
+        name: siteName.value,
+        URL: siteURL.value
+    }
+if(regex.siteName.test(site.name) && regex.siteURL.test(site.URL)){
+        displaySite(siteContainer);
+        localStorage.setItem("bookmarkSites", JSON.stringify(siteContainer))
+        clearForm()
+    
+        addBtn.classList.remove("d-none")
+        updateBtn.classList.add("d-none")
+    }else{
+        popUp.classList.replace("d-none", "d-flex")    
+    }
 }
 
 function clearAll(){
