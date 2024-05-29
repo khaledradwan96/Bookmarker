@@ -1,8 +1,13 @@
 var siteName = document.getElementById("siteName");
 var siteURL = document.getElementById("siteURL");
+
 var popUp = document.querySelector(".pop-up");
 var closeBtn = document.getElementById("closeBtn")
+
 var searchInput = document.getElementById("searchInput")
+
+var addBtn = document.getElementById("addBtn")
+var updateBtn = document.getElementById("updateBtn")
 
 
 var siteContainer;
@@ -31,8 +36,6 @@ if(regex.siteName.test(site.name) && regex.siteURL.test(site.URL)){
 }
 }
 
-console.log(popUp)
-
 function displaySite(arr){
     var cartona = "";
     for(var i=0; i<arr.length; i++){
@@ -47,6 +50,10 @@ function displaySite(arr){
             </a>
         </td>
         <td>
+            <button onclick="getValues(${i})" class="btn btn-success">
+            <i class="fa-solid fa-edit"></i>
+                update
+            </button>
             <button onclick="deleteSite(${i})" class="btn btn-danger">
                 <i class="fa-solid fa-trash-can"></i>
                 Delete
@@ -67,7 +74,7 @@ function deleteSite(index){
 
 // validate Inputs
 var regex = {
-    siteName: /^([A-Z]|[a-z]){3,}$/,
+    siteName: /^([A-Z]|[a-z]|[0-9]){3,}$/,
     siteURL: /^(?:(?:https?|ftp):\/\/)?(?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)+[^\s]*$/i
 }
 
@@ -101,3 +108,28 @@ function search(){
     }
     displaySite(box)
 };
+
+// change value of site
+var updateIndex;
+function getValues(index){
+    console.log(index)
+    updateIndex = index;
+    siteName.value = siteContainer[index].name;
+    siteURL.value = siteContainer[index].URL;
+
+    addBtn.classList.add("d-none")
+    updateBtn.classList.remove("d-none")
+}
+
+function updateSite(updateIndex){
+    siteContainer[updateIndex].name = siteName.value;
+    siteContainer[updateIndex].URL = siteURL.value;
+
+    displaySite(siteContainer);
+    localStorage.setItem("bookmarkSites", JSON.stringify(siteContainer))
+    siteName.value = null;
+    siteURL.value = null;
+
+    addBtn.classList.remove("d-none")
+    updateBtn.classList.add("d-none")
+}

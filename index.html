@@ -47,7 +47,10 @@
                         placeholder="Website URL">
                 </div>
 
-                <button onclick="addSite()" class="btn btn-warning px-5 mt-3">Submit</button>
+                <button id="addBtn" onclick="addSite()" class="btn btn-warning px-5 mt-3">Submit</button>
+                <button id="updateBtn" onclick="updateSite(updateIndex)"
+                    class="btn btn-outline-success px-5 mt-3 d-none">Update
+                    Value</button>
             </div>
 
             <div class="mt-3 text-start">
@@ -61,7 +64,7 @@
                         <th>Index</th>
                         <th>Website Name</th>
                         <th>Visit</th>
-                        <th>Delete</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="align-middle" id="tableContent"> </tbody>
