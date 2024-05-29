@@ -61,11 +61,11 @@ function displaySite(arr){
             </a>
         </td>
         <td>
-            <button onclick="getValues(${i})" class="btn btn-success">
+            <button onclick="getValues(${i})" class="btn btn-success mb-1">
             <i class="fa-solid fa-edit"></i>
                 update
             </button>
-            <button onclick="deleteSite(${i})" class="btn btn-danger">
+            <button onclick="deleteSite(${i})" class="btn btn-danger mb-1">
                 <i class="fa-solid fa-trash-can"></i>
                 Delete
             </button>
@@ -143,8 +143,7 @@ function updateSite(updateIndex){
 
     displaySite(siteContainer);
     localStorage.setItem("bookmarkSites", JSON.stringify(siteContainer))
-    siteName.value = null;
-    siteURL.value = null;
+    clearForm()
 
     addBtn.classList.remove("d-none")
     updateBtn.classList.add("d-none")
@@ -160,9 +159,10 @@ function clearAll(){
 
 function addTestData(){
     var testData = [
-        {name: "facebook", URL: "https://www.facebook.com/"},
-        {name: "YouTube", URL: "https://www.youtube.com/"},
-        {name: "google", URL: "https://www.google.com/"},
+        {name: "gmail", URL: "mailto:khaledradwan96@gmail.com"},
+        {name: "linkedin", URL: "https://www.linkedin.com/in/khaledradwan96/"},
+        {name: "facebook", URL: "https://www.facebook.com/khaldradwan96/"},
+        {name: "github", URL: "https://github.com/khaledradwan96"},
     ]
     siteContainer = testData;
     displaySite(siteContainer);
